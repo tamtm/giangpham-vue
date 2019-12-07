@@ -1,21 +1,23 @@
 import Vue from 'vue'
+import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 import VueToastr from 'vue-toastr'
+import VueSweetalert2 from 'vue-sweetalert2'
+import 'sweetalert2/dist/sweetalert2.min.css';
 
 Vue.config.productionTip = false
+
+Vue.use(Vuex)
 Vue.use(VueRouter)
 Vue.use(VueToastr)
+Vue.use(VueSweetalert2)
 
 import App from './App.vue'
-import Login from './components/Login.vue'
-import Register from './components/Register.vue'
-
-const routes = [
-  { path: '/login', component: Login },
-  { path: '/register', component: Register }
-]
+import store from './store.js'
+import routes from './routes.js'
 
 new Vue({
-  router: new VueRouter({mode: 'history', routes: routes}),
+  store: new Vuex.Store(store),
+  router: new VueRouter({ mode: 'history', routes: routes }),
   render: h => h(App)
 }).$mount('#app')
