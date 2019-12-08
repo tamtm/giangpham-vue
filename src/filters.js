@@ -1,5 +1,5 @@
 export default {
-  coin: function(value) {
-    return value + "COIN"
+  coinFormat: function(value, length) {
+    return value.toFixed(length)
   }
 }
