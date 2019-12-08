@@ -22,8 +22,10 @@ export default {
         password: this.password
       }).then((res) => {
         this.$store.commit('login', res.data.data)
+        window.localStorage.setItem('token', res.data.token)
         this.$router.push('member')
         this.$toastr.s("login success")
+        this.$store.dispatch('getJobs')
       }).catch((res) => {
         this.$swal(res.message)
       }) 
