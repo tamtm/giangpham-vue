@@ -2,7 +2,7 @@
   <div class="member">
     <div v-if="username ">
       username: {{ username }} <br>
-      coin: {{ coin }}
+      coin: {{ coin | coin}}
     </div>
   </div>
 </template>

@@ -16,6 +16,14 @@ import App from './App.vue'
 import store from './store.js'
 import routes from './routes.js'
 
+import filters from './filters.js'
+// add global filter
+for (var filter in filters) {
+  if (filters.hasOwnProperty(filter)) {
+    Vue.filter(filter, filters[filter])
+  }
+}
+
 new Vue({
   store: new Vuex.Store(store),
   router: new VueRouter({ mode: 'history', routes: routes }),
