@@ -14,6 +14,9 @@ export default {
   actions: {
     login(s, payload) {
       return axios.post(apiurl + 'login', payload)
+    },
+    register(s, payload) {
+      return axios.post(apiurl + 'register', payload)
     }
   }
 }
