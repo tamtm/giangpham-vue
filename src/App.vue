@@ -20,7 +20,7 @@ export default {
     }
   },
   created() {
-    if (this.$store.state.member === null && this.$router.currentRoute.name !== 'login') 
+    if (this.$store.state.member === null && this.$router.currentRoute.name === 'member') 
       this.$router.push('login')
   }
 }

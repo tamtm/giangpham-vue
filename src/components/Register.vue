@@ -38,7 +38,9 @@ export default {
           this.$toastr.s(res.data.message)
           this.$router.push('login')
         }).catch((res) => {
-          this.$swal(res.data.message)
+          // this.$swal(res.data.message)
+          window.console.log(res)
+          this.$swal(res.data)
         })
       }
     }
