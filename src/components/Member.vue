@@ -5,7 +5,9 @@
       coin: {{ coin | coinFormat(3) }}
     </div>
     <ul>
-      <li v-for="(job, index) in jobs" :key="index">{{ job }}</li>
+      <li v-for="(job, index) in jobs" :key="index">
+        <a :href="job.link" target="_blank">{{ job.description }}</a>
+      </li>
     </ul>
   </div>
 </template>

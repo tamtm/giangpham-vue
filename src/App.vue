@@ -2,8 +2,9 @@
   <div id="app">
     <div class="navbar">
       <router-link to="/">Home</router-link>
-      <router-link to="/login">Login</router-link>
       <router-link to="/register">Register</router-link>
+      <router-link to="/login" v-if="$store.state.member === null">Login</router-link>
+      <a @click="logout">Logout</a>
     </div>
     <router-view></router-view>
   </div>
@@ -12,5 +13,15 @@
 <script>
 export default {
   name: 'app',
+  methods: {
+    logout() {
+      this.$store.dispatch('logout')
+      this.$router.push('login')
+    }
+  },
+  created() {
+    if (this.$store.state.member === null && this.$router.currentRoute.name !== 'login') 
+      this.$router.push('login')
+  }
 }
 </script>
