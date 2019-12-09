@@ -34,13 +34,13 @@ export default {
           password: this.password,
           referral: this.referral,
           username: this.username
-        }).then((res) => {
+        }).then(res => {
           this.$toastr.s(res.data.message)
           this.$router.push('login')
-        }).catch((res) => {
-          // this.$swal(res.data.message)
-          window.console.log(res)
-          this.$swal(res.data)
+        }).catch(error => {
+          // window.console.log(error.response)
+          var err = error.response.data.error
+          this.$swal(err.username ? err.username.toString() : '' +  err.password ? err.password.toString() : '')
         })
       }
     }
